@@ -72,10 +72,14 @@ clearCompletedButton.addEventListener('click', () =>{
 allToggler.addEventListener('change', () => {
   const togglers = root.querySelectorAll('.toggle');
 
+  console.log(allToggler.checked);
+
   for (const toggler of togglers) {
     toggler.checked = allToggler.checked;
     toggler.closest('.todo-item').classList.toggle('completed', allToggler.checked);
   }
+
+  updateInfo();
 });
 
 newTodoField.addEventListener('keydown', (event) => {
@@ -124,3 +128,4 @@ itemsList.addEventListener('change', (event) => {
   event.target.closest('.todo-item').classList.toggle('completed', event.target.checked);
   updateInfo();
 })
+ 
